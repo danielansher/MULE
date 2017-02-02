@@ -1,0 +1,68 @@
+@font-face {
+    src: url('/fonts/Larke_Neue_Bold.ttf');
+}
+
+@font-face {
+    src: url('/fonts/Larke_Neue_Regular.ttf');
+}
+
+.root {
+    -fx-background-color: #d9d9d9;
+    -fx-font-family: 'Larke Neue Regular';
+}
+
+.label {
+    -fx-font-family: 'Larke Neue Bold';
+}
+
+.split-pane {
+    -fx-background-color: #d9d9d9;
+}
+
+.split-pane-divider {
+    -fx-background-color: transparent;
+}
+
+.button {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-family: 'Larke Neue Regular';
+    -fx-background-color: #61B5D1;
+}
+
+.button:hover {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-family: 'Larke Neue Regular';
+    -fx-background-color: #3AA2C5;
+}
+
+.radio-button .radio {
+    -fx-background-color: #ffffff;
+}
+
+.radio-button .text {
+    -fx-font-size: 18px;
+    -fx-font-family: 'Larke Neue Regular';
+}
+
+.radio-button:selected .dot {
+    -fx-background-color: #3AA2C5;
+}
+
+.text-field {
+    -fx-display-caret: false;
+    -fx-background-color: #f2f2f2;
+}
+
+.text-field:focused {
+    -fx-display-caret: true;
+    -fx-background-color: #ffffff;
+}
+
+.choice-box {
+    -fx-background-color: #f2f2f2;
+}
+
+
+

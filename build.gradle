@@ -1,0 +1,50 @@
+defaultTasks 'jar'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+
+//sourceCompatibility = 1.8
+version = '1.0'
+mainClassName = "edu.gatech.justiceleague.mule.Main"
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'MULE',
+                'Implementation-Version': version,
+                'Main-Class': mainClassName
+    }
+}
+
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = compileJava.destinationDir
+        testOutputDir = compileTestJava.destinationDir
+    }
+}
+
+dependencies {
+    checkstyle 'com.puppycrawl.tools:checkstyle:5.9'
+    compile 'com.google.code.gson:gson:2.4'
+    testCompile 'junit:junit:4.12'
+}
+
+pmd {
+    ignoreFailures = false
+    sourceSets = [sourceSets.main]
+    reportsDir = file("$project.buildDir/reports/pmd")
+    ruleSets = [
+            "basic",
+            "braces"
+    ]
+}
+
+repositories {
+    mavenCentral()
+}
+
+task runJar(dependsOn: "jar") << {
+    ant.java(jar: "${libsDir}${File.separator}MULE-" + version + ".jar", fork: true)
+}
